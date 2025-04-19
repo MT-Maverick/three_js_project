@@ -52,6 +52,8 @@ Chadwick Boseman, it is a web-based visual experience built using Three.js, feat
     -   **`content.js`:** Contains the `Content` class, responsible for creating and animating the title.
 - **`sample.jpg`:** A sample image that can be used as the background image.
 
+![Sample image](/sample/sample.jpeg)
+
 ## Setup and Installation
 
 1.  **Clone the repository:**
