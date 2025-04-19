@@ -11,12 +11,12 @@ class CloudScene {
         this.backgroundImage = null; // Add a property to store the background image
 
         this.cloudParams = {
-            sphereRadius: 80,
-            sphereSegments: 20,
+            sphereRadius: 70,
+            sphereSegments: 12,
             sphereRings: 5,
             cloudColor: 0x696969,
             cloudOpacity: 0.01,
-            clusterCount: 50,
+            clusterCount: 30,
             spheresPerCluster: 10,
             clusterSpreadX: window.innerWidth,
             clusterSpreadY: window.innerHeight / 2,
@@ -27,13 +27,13 @@ class CloudScene {
         };
 
         this.starParams = {
-            starCount: 1800,
+            starCount: 800,
             starSize: 1.5,
             starOpacity: 0.9,
             starSpreadX: 1500,
             starSpreadY: 500,
             starSpreadZ: 1000,
-            starColors: [0x9400D3, 0x0000FF, 0x008000, 0xffffff], // Purple, Blue, Green
+            starColors: [0x9400D3, 0x0000FF, 0x008000, 0xffffff], // Purple, Blue, Green, white
         };
 
         this.init();
@@ -153,6 +153,7 @@ class CloudScene {
         this.updateBackgroundImage();
         this.createClouds();
         this.updateCloudParams(); // Update cloud parameters on resize
+    
     }
 
     createSVGBackground() {
