@@ -4,6 +4,8 @@ class Content {
         this.init();
     }
 
+
+    
     handleResize() {
         // Update the underline position on resize
         this.updateUnderline();
@@ -14,11 +16,12 @@ class Content {
         this.animateTitle();
         window.addEventListener('resize', this.handleResize.bind(this)); // Add resize listener
     }
-
+   
+   
     createTitle() {
         this.title.textContent = 'Long Live The King';
         this.title.style.fontSize = '100%';
-        this.title.style.position = 'fixed';
+        this.title.style.position = 'absolute';
         this.title.style.bottom = '40%';
         this.title.style.left = '7%';
         this.title.style.color = 'gray';
@@ -28,6 +31,7 @@ class Content {
         this.title.style.transition = 'transform 4s cubic-bezier(0.3, 0.87, 1, 0.1), opacity 2s cubic-bezier(0.3, 0.87, 1, 0.1)'; // Separate transitions
         this.title.style.zIndex = '10';
         document.body.appendChild(this.title);
+
 
         // Create and add the custom underline
         this.underline = document.createElement('div');
@@ -63,19 +67,23 @@ class Content {
         this.underline.appendChild(this.rightUnderline);
     }
 
+
     animateTitle() {
         setTimeout(() => {
             // Start the translation and opacity animation
             this.title.style.transform = 'translateY(0)';
-            this.title.style.opacity += `${0.1}`; // Opacity to 50% during translation
+            this.title.style.opacity = '0.5'; // Opacity to 50% during translation
 
             // Wait for the translation to complete, then start the underline animation
             setTimeout(() => {
                 this.title.style.opacity = '1'; // Opacity to 100%
                 this.underline.style.opacity = '1';
                 this.animateUnderline();
-            }, 4000); // 6000ms = 6s (translation duration)
-            
+            }, 4000); // 4s = 4000ms (translation duration)
+
+            setTimeout(() => {
+                this.removeTitleAndShowDetails();
+            }, 6000); // 6s after the initial animation starts
         }, 2000);
     }
 
